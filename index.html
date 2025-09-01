@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projeto Integrador – Sistema Web</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>NEXT PHONE</h1>
+    <nav>
+      <button class="tab-btn" data-tab="cadastro">Cadastro</button>
+      <button class="tab-btn" data-tab="login">Login</button>
+      <button class="tab-btn" data-tab="lista">Lista (CRUD)</button>
+      <button id="btnSair" class="hidden">Sair</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- CADASTRO -->
+    <section id="cadastro" class="tab active">
+      <h2>Cadastro de Usuário</h2>
+      <form id="formCadastro" autocomplete="off">
+        <div class="grid-2">
+          <label>Nome
+            <input type="text" id="nome" required />
+          </label>
+
+          <label>E-mail
+            <input type="email" id="email" required />
+          </label>
+        </div>
+
+        <div class="grid-2">
+          <label>Senha
+            <input type="password" id="senha" minlength="4" required />
+          </label>
+
+          <label>Confirmar Senha
+            <input type="password" id="confirmaSenha" minlength="4" required />
+          </label>
+        </div>
+
+        <div class="grid-4">
+          <label>CEP
+            <input type="text" id="cep" inputmode="numeric" placeholder="00000-000" maxlength="9" />
+          </label>
+
+          <label>Rua
+            <input type="text" id="rua" />
+          </label>
+
+          <label>Bairro
+            <input type="text" id="bairro" />
+          </label>
+
+          <label>Cidade
+            <input type="text" id="cidade" />
+          </label>
+
+          <label>UF
+            <input type="text" id="uf" maxlength="2" />
+          </label>
+        </div>
+
+        <div class="actions">
+          <button type="submit">Salvar</button>
+          <button type="reset" class="sec">Limpar</button>
+        </div>
+      </form>
+      </p>
+    </section>
+
+    <!-- LOGIN -->
+    <section id="login" class="tab">
+      <h2>Login</h2>
+      <form id="formLogin">
+        <label>E-mail
+          <input type="email" id="loginEmail" required />
+        </label>
+        <label>Senha
+          <input type="password" id="loginSenha" required />
+        </label>
+        <div class="actions">
+          <button type="submit">Entrar</button>
+        </div>
+      </form>
+
+      <div id="areaLogado" class="card hidden">
+        <h3>Bem-vindo(a) <span id="nomeLogado"></span> 👋</h3>
+        <p><strong>E-mail:</strong> <span id="emailLogado"></span></p>
+        <p><strong>Endereço:</strong> <span id="enderecoLogado"></span></p>
+      </div>
+    </section>
+
+    <!-- LISTA / CRUD -->
+    <section id="lista" class="tab">
+      <h2>Usuários Cadastrados</h2>
+      <table id="tabelaUsuarios">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>CEP</th>
+            <th>Cidade/UF</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p class="hint">Os dados são salvos em <strong>localStorage</strong> (CRUD completo).</p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
